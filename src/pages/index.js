@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
-// import Posts from '../components/Posts';
+import Posts from '../components/Posts';
 import { graphql } from 'gatsby';
 
 import '../css/main.css';
@@ -9,7 +9,7 @@ import '../css/main.css';
 const IndexPage = () => {
   return (
     <Layout>
-      <Hero />
+      <Hero showPerson />
     </Layout>
   );
 };
