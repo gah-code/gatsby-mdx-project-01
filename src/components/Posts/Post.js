@@ -5,8 +5,19 @@ import { IoMdArrowRoundForward } from 'react-icons/io';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const Post = () => {
-  return <h4>single post</h4>;
+const Post = ({ excerpt, frontmatter }) => {
+  const { title, image, slug, category, readTime } = frontmatter;
+  return (
+    <Wrapper>
+      <GatsbyImage image={getImage(image)} alt={title} className='img' />
+      <div className='info'>
+        <span className='category'>{category}</span>
+        <h3>{title}</h3>
+        <div className='under-line'></div>
+        <p>{excerpt}</p>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.article`
