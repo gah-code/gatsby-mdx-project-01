@@ -1,21 +1,27 @@
-import React from 'react';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
+/**
+ * Layout component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.org/docs/use-static-query/
+ */
+
+import React from 'react'
+import '../css/main.css'
+import Footer from './Footer'
+import Navbar from './Navbar'
+import Sidebar from './Sidebar'
 
 const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isOpen, toggle] = React.useReducer(state => !state, false)
+
   return (
     <>
-      <Navbar toggle={toggle} />
       <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />
       <main>{children}</main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
