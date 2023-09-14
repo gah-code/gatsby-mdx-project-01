@@ -17,8 +17,8 @@ const PostsPage = ({ data }) => {
 };
 
 export const query = graphql`
-  query {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+  {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         excerpt
         frontmatter {
@@ -26,8 +26,8 @@ export const query = graphql`
           author
           category
           readTime
-          slug
           date(formatString: "MMMM, Do YYYY")
+          slug
           image {
             childImageSharp {
               gatsbyImageData

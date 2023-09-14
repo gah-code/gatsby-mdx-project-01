@@ -9,7 +9,7 @@
  */
 module.exports = {
   plugins: [
-    // `gatsby-plugin-mdx`,
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

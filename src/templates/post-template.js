@@ -9,7 +9,14 @@ import Layout from '../components/Layout';
 const PostTemplate = ({ data }) => {
   const {
     mdx: {
-      frontmatter: { title, category, image, date, embeddedImages },
+      frontmatter: {
+        title,
+        category,
+        image,
+        date,
+        embeddedImages,
+        description,
+      },
       body,
     },
   } = data;
@@ -32,6 +39,7 @@ const PostTemplate = ({ data }) => {
             <div className='underline'></div>
           </div>
           {/* <MDXRenderer embeddedImages={embeddedImages}>{body}</MDXRenderer> */}
+          <p className='description'>{description}</p>
         </article>
         {/* banner component */}
         <article>
@@ -57,6 +65,7 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        description
         image {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED)
