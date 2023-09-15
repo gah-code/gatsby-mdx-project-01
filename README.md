@@ -1,6 +1,4 @@
-# To do
-
-Certainly! Here's a step-by-step guide to integrating the `gatsby-plugin-theme-ui` with Prism for syntax highlighting into your Gatsby project:
+# To do List
 
 **Step 1: Install Required Packages**
 
