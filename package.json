@@ -37,8 +37,5 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^2.1.4"
   }
 }
