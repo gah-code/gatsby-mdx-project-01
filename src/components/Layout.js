@@ -5,14 +5,23 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
-import '../css/main.css'
-import Footer from './Footer'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import React from 'react';
+import { ThemeUIProvider } from 'theme-ui';
+import { MDXProvider } from '@mdx-js/react';
+import { useThemedStylesWithMdx } from '@theme-ui/mdx';
+import Prism from '@theme-ui/prism';
+import '../css/main.css';
+import Footer from './Footer';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import theme from '../gatsby-plugin-theme-ui/theme';
 
+const components = {
+  pre: ({ children }) => <>{children}</>,
+  code: Prism,
+};
 const Layout = ({ children }) => {
-  const [isOpen, toggle] = React.useReducer(state => !state, false)
+  const [isOpen, toggle] = React.useReducer((state) => !state, false);
 
   return (
     <>
@@ -21,7 +30,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
