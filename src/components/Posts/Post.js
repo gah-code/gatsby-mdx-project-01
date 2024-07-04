@@ -26,6 +26,9 @@ const Post = ({ excerpt, frontmatter }) => {
           </span>
           <span>{readTime} min read</span>
         </footer>
+
+        <p>{description}</p>
+        {/* <p>{frontmatter}</p> */}
       </div>
     </Wrapper>
   );

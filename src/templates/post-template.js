@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Banner from '../components/Banner';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
+import PropTypes from 'prop-types';
+
 const PostTemplate = ({ data }) => {
   const {
     mdx: {
@@ -14,7 +16,7 @@ const PostTemplate = ({ data }) => {
         category,
         image,
         date,
-        embeddedImages,
+        embeddedImages, // Ensure embeddedImages is included here
         description,
       },
       body,
@@ -38,9 +40,13 @@ const PostTemplate = ({ data }) => {
             <p>{date}</p>
             <div className='underline'></div>
           </div>
+          {/* Pass embeddedImages to MDXRenderer */}
+          {/* <MDXRenderer>{embeddedImages}</MDXRenderer> */}
           {/* <MDXRenderer embeddedImages={embeddedImages}>{body}</MDXRenderer> */}
+          <p>{body}</p>
           <p className='description'>{description}</p>
         </article>
+
         {/* banner component */}
         <article>
           <Banner />
@@ -48,6 +54,27 @@ const PostTemplate = ({ data }) => {
       </Wrapper>
     </Layout>
   );
+};
+PostTemplate.propTypes = {
+  data: PropTypes.shape({
+    mdx: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+          childImageSharp: PropTypes.object.isRequired,
+        }),
+        date: PropTypes.string.isRequired,
+        embeddedImages: PropTypes.arrayOf(
+          PropTypes.shape({
+            childImageSharp: PropTypes.object.isRequired,
+          })
+        ),
+        description: PropTypes.string.isRequired,
+      }),
+      body: PropTypes.string.isRequired,
+    }),
+  }),
 };
 
 export const query = graphql`
