@@ -1,4 +1,5 @@
 import prism from '@theme-ui/prism/presets/theme-ui';
+import vsDark from '@theme-ui/prism/presets/vs-dark.json';
 
 export default {
   colors: {
@@ -11,7 +12,18 @@ export default {
   },
   styles: {
     code: {
-      ...prism,
+      ...vsDark,
     },
   },
 };
+
+// import vsDark from '@theme-ui/prism/presets/vs-dark.json';
+
+// const theme = {
+//   // ...theme
+//   styles: {
+//     code: {
+//       ...vsDark,
+//     },
+//   },
+// };

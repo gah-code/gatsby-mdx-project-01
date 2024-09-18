@@ -1,10 +1,8 @@
 import React from 'react';
-// import Highlight, { defaultProps } from 'prism-react-renderer';
-import Prism from 'prismjs/components/prism-core';
-import { Highlight, Prism } from 'prism-react-renderer';
-
-import theme from '../../gatsby-plugin-theme-ui/theme';
+import Highlight, { defaultProps, Prism, theme } from 'prism-react-renderer';
+// import theme from 'prism-react-renderer/themes/vsDark';
 import styled from 'styled-components';
+// import dracula from 'prism-react-renderer/themes/dracula';
 
 const PrismWrapper = (props) => {
   const className = props.children.props.className;
@@ -15,8 +13,7 @@ const PrismWrapper = (props) => {
       {...defaultProps}
       code={props.children.props.children.trim()}
       language={language}
-      theme={theme}
-      prism={Prism}
+      // theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (

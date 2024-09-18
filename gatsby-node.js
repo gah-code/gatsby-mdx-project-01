@@ -1,6 +1,6 @@
 const path = require('path');
 
-// create pages dynamically
+// Create pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
@@ -18,6 +18,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  // Check for errors in the GraphQL query
+  if (result.errors) {
+    console.error('Error fetching MDX data:', result.errors);
+    return; // Exit if there are errors
+  }
+
+  // Create pages for each post
   result.data.allMdx.nodes.forEach(({ frontmatter: { slug } }) => {
     createPage({
       path: `/posts/${slug}`,
@@ -28,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  //distinct fields acts like New set() => returns unique values
+  // Create pages for each unique category
   result.data.categories.distinct.forEach((category) => {
     createPage({
       path: `/${category}`,
